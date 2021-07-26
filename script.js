@@ -5,4 +5,20 @@ function Contact(first, last) {
   this.lastName = last;
 }
 
-// 
+// User Interface Logic
+
+$(document).ready(function () {
+  $("form#new-contact").submit(function () {
+    event.preventDefault();
+
+    var inputtedFirstName = $("input#new-first-name").val();
+    var inputtedLastName = $("input#new-last-name").val();
+
+    var newContact = new contact(inputtedFirstName, inputtedLastName);
+
+    $("ul#contacts").append("<li><span class='contact'> + newContact.firstName + "</span></li>");
+
+    $("input#new-first-name").val();
+    $("input#new-last-name").val();
+  });
+});
